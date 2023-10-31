@@ -1,0 +1,41 @@
+﻿@page
+@using EComMVVM.Model;
+@model EComMVVM.Pages.ProductModel
+@{
+}
+
+
+
+<h1 class="Display-4">Mon panier</h1>
+
+
+<div class="row">
+
+
+    @if (Model != null && Model.Products.Count > 0)
+    {
+        <div class="row">
+
+            @foreach (var produit in Model.Products)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="@produit.image" class="card-img-top" alt="Image du produit">
+                        <div class="card-body">
+                            <h5 class="card-title">@produit.name</h5>
+                            <p class="card-text">@produit.description</p>
+                            <p class="card-text"><strong>Prix : @produit.price</strong></p>
+                            <button type="submit" class="btn btn-primary">Je passe au payement</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>Votre panier est vide.</p>
+    }
+
+
+</div>

@@ -1,0 +1,23 @@
+﻿@page
+@model EComMVVM.Pages.AddProductModel
+@{
+}
+
+
+<h1 class="display-3">Ajouter produit</h1>
+
+<form method="post" enctype="multipart/form-data">
+
+    <label for="name">Nom:</label>
+    <input class="form-control" type="text" name="name" />
+    <label for="name">Description:</label>
+    <input class="form-control" type="text" name="description" />
+    <label for="name">Prix:</label>
+    <input class="form-control" type="number" name="price" />
+    <label for="name">Image:</label>
+    <input class="form-control" type="file" name="ImageFile" />
+    <input type="hidden" name="image" value="">
+
+    <br />
+    <button class="btn-primary" type="submit">Ajouter</button>
+</form>

@@ -1,0 +1,59 @@
+﻿@page
+@using EComMVVM.Model;
+@model EComMVVM.Pages.ProductModel
+@{
+}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex align-items-center">
+            <h1 class="Display-4" style="margin-right: 900px;">Liste des produits</h1>
+            <a href="Panier">
+               <i class="fa fa-shopping-cart"></i>
+                <span class="badge badge-pill badge-primary" style="color: red;">Panier</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<hr style="border-top: 2px solid black;" />
+
+
+<form method="post">
+    <label for="filter-name">Nom:</label>
+    <input class="form-control" type="text" name="filterName" />
+    <br />
+    <button class="btn-secondary" type="submit">Filter</button>
+</form>
+
+<br />
+
+
+
+<div class="row">
+
+    @foreach (var produit in Model.Products)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="@produit.image" class="card-img-top" alt="Image du produit">
+                <div class="card-body">
+                    <h5 class="card-title">@produit.name</h5>
+                    <p class="card-text">@produit.description</p>
+                    <p class="card-text"><strong>Prix : @produit.price</strong></p>
+                    <form method="post" asp-page="Panier" asp-route-idProduit="@produit.id">
+                        <input type="hidden" name="idProduit" value="@produit.id" />
+                        <button type="submit" class="btn btn-primary">Ajouter au panier</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
